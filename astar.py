@@ -1,3 +1,7 @@
+#Implement A star Algorithm for 8 puzzle problem
+
+
+
 class Node:
     def __init__(self , state , parent , g , h):
         self.state = state
