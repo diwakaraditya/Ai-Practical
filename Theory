@@ -1,0 +1,350 @@
+1. Implement Depth First Search Algorithm and Breadth First Search algorithm
+• What is the main difference between DFS and BFS?
+• What data structures are used in DFS and BFS?
+• In what type of problems would DFS be preferred over BFS?
+• What is the time and space complexity of DFS and BFS?
+• Can DFS or BFS be used to detect cycles in a graph?
+
+• Implementation Questions
+
+How do you avoid visiting the same node again? 
+How do you represent the graph in your code — adjacency list or matrix? 
+How do you modify BFS to count the number of levels in a graph? 
+What would you change in your DFS code to make it iterative?
+
+1. DFS and BFS Algorithms
+✅ Theory Questions:
+Main Difference:
+DFS explores as far as possible along each branch before backtracking (depth-wise).
+BFS explores all neighbors at the current depth before moving deeper (level-wise).
+
+Data Structures Used:
+DFS → Stack (or recursion)
+BFS → Queue
+
+When to Prefer DFS:
+When the solution is deep or you want to check all paths (e.g., maze traversal).
+
+Time & Space Complexity:
+Both are O(V + E) for adjacency list.
+BFS may use more memory due to queue.
+
+Cycle Detection:
+Yes, both can be used for cycle detection (DFS via visited + recursion stack, BFS via visited set).
+
+✅ Implementation:
+Avoid Revisited Nodes: Use a visited set or array.
+Graph Representation: Use adjacency list for efficiency.
+BFS Level Count: Add None or track level size while dequeuing.
+Iterative DFS: Use an explicit stack instead of recursion.
+
+2. Implement A star Algorithm for 8 puzzle problem
+
+    • What is the 8-puzzle problem?
+    • What is the heuristic function used in A*? Name two commonly used heuristics.
+    • What makes A* algorithm both complete and optimal?
+    • What is the difference between Greedy Best First Search and A*?
+    • Can you explain the structure of a node in the A* algorithm for the 8 puzzle?
+
+    • Implementation Questions: 
+
+What data structures are used in A* algorithm?
+What does the f(n) = g(n) + h(n) represent? 
+How do you track the path from the initial state to the goal? 
+How did you ensure that repeated states are not revisited?
+
+2. A for 8-Puzzle Problem*
+✅ Theory Questions:
+What is it?
+Rearrange a 3x3 board to reach a goal configuration using tile moves.
+
+Heuristic Functions:
+Manhattan Distance (common)
+Misplaced Tiles Count
+
+Why A* is Optimal & Complete?
+Because it uses both cost-so-far (g(n)) and heuristic estimate (h(n)) ensuring best-first and completeness.
+
+Greedy vs A*:
+Greedy uses h(n) only (fast but not optimal).
+A* uses f(n) = g(n) + h(n) (balanced and optimal).
+
+Node Structure in A*:
+Contains state, parent, g(n), h(n), and f(n).
+
+✅ Implementation:
+Data Structures: Priority Queue (min-heap), Set (for visited states).
+
+f(n) = g(n) + h(n):
+g(n) = cost so far, h(n) = heuristic, f(n) = total cost estimate.
+Tracking Path: Use parent pointers in node and backtrack from goal.
+Avoid Repeats: Use a visited set/dictionary of states.
+
+
+
+3. Implement Greedy search algorithm for Selection Sort
+    • How is selection sort an example of a greedy algorithm?
+    • What is the time complexity of selection sort in best, average, and worst cases?
+    • Why is greedy approach suitable for selection sort?
+    • Can selection sort be used on linked lists? Why or why not?
+    • What is the main difference between selection sort and bubble sort?
+
+    • Implementation Questions: 
+
+How do you find the minimum element in each iteration? 
+Is the algorithm stable? Why or why not? 
+Can selection sort be made recursive? 
+
+
+3. Greedy Selection Sort
+✅ Theory Questions:
+Why Greedy?
+At each step, it picks the smallest element and places it correctly — local optimal → global.
+
+Time Complexity:
+Always O(n²) in best, average, and worst cases.
+
+Greedy Suitability:
+It always makes the best immediate choice, which fits sorting logic.
+
+Selection Sort on Linked List?
+Possible, but inefficient (O(n²) with no random access).
+
+Selection vs Bubble Sort:
+Selection minimizes swaps, Bubble minimizes comparisons.
+
+✅ Implementation:
+Find Min: Iterate through unsorted portion and keep index of min.
+
+Stability: Not stable (equal elements might swap positions).
+
+Recursive Version: Yes, by reducing problem size each time.
+
+
+
+4. Constraint Satisfaction Problem (CSP) using Branch & Bound and Backtracking – N-Queens
+    1. What is a Constraint Satisfaction Problem?
+    2. Explain the backtracking technique with respect to the N-Queens problem.
+    3. What is the role of pruning in Branch and Bound?
+    4. How does the solution space change as n increases in N-Queens?
+    5. What is the difference between backtracking and branch and bound?
+Implementation Questions: 
+How do you check if a queen placement is valid?
+How would you solve the N-Queens problem non-recursively? 
+Can you generalize your code to solve for any N?
+
+4. N-Queens – CSP via Backtracking and Branch & Bound
+✅ Theory:
+CSP: Problem with variables, domains, and constraints (e.g., N-Queens).
+
+Backtracking: Try placing queen row by row, backtrack on conflict.
+
+Branch & Bound: Prune unpromising branches early using bounds.
+
+Scaling with N: Solution space grows exponentially; more complex with larger N.
+
+Backtracking vs BnB:
+BnB uses bounds for pruning, backtracking only uses constraints.
+
+✅ Implementation:
+Valid Placement: Check row, column, and both diagonals.
+
+Non-recursive: Use an explicit stack.
+
+Generalization: Use N as input and build logic accordingly.
+
+
+
+5. Elementary Chatbot for Customer/User Interaction
+    1. What is a chatbot and how does it work?
+    2. What is the difference between a rule-based and AI-based chatbot?
+    3. What libraries can be used to build a simple chatbot in Python?
+    4. How do you handle unexpected user inputs in a chatbot?
+Implementation Questions: 
+What language/tools did you use for implementation?
+How does your chatbot handle unknown queries? 
+How do you store user messages and responses?
+Did you use any libraries like NLTK or Rasa? 
+How would you improve your chatbot to make it more human-like?
+
+5. Chatbot for Customer Interaction
+✅ Theory:
+What is a Chatbot?
+Software that simulates human conversation via text/voice.
+
+Rule-based vs AI-based:
+Rule-based uses fixed rules; AI-based uses NLP and ML for flexible interaction.
+
+Python Libraries:
+NLTK, ChatterBot, Rasa, spaCy, Transformers
+
+Unexpected Inputs:
+Use fallback/default responses, pattern matching, or retraining.
+
+✅ Implementation:
+Language/Tools: Python + basic NLP or rule engine.
+
+Unknown Queries: Fallback response or "I didn’t understand".
+
+Message Storage: Lists, JSON, databases, or logs.
+
+Libraries: NLTK, Rasa.
+
+Improvement: Add context, memory, intent classification, use ML/NLP.
+
+6. Expert System
+    1. What is an expert system? How does it differ from a traditional software system?
+    2. What are the main components of an expert system?
+    3. What is a knowledge base? How is it implemented?
+    4. How is inference performed in an expert system?
+    5. Give some real-world examples of expert systems.
+
+
+6. Expert System
+✅ Theory:
+What is it?
+AI system emulating decision-making ability of a human expert.
+
+Difference from Traditional Software:
+Expert systems infer and reason; traditional software executes fixed logic.
+
+Components:
+
+Knowledge Base
+
+Inference Engine
+
+User Interface
+
+Knowledge Base: Stores facts & rules. Implemented using rules, ontologies, etc.
+
+Inference: Uses forward chaining or backward chaining to deduce conclusions.
+
+Examples:
+MYCIN (medical), DENDRAL (chemical), CLIPS-based systems.
+
+
+Basic AI Concepts
+What is Artificial Intelligence? How is it different from human intelligence?
+Define the Turing Test. Why is it important in AI?
+What are the main branches of AI?
+Explain the difference between strong AI and weak AI.
+What is an intelligent agent? Can you give some examples?
+What is the difference between uninformed and informed search?
+Explain the working of the A* algorithm.
+What is the role of heuristics in AI search strategies?
+Compare BFS and DFS in terms of completeness and time complexity.
+What are the different ways of representing knowledge in AI?
+What is the semantic network? How is it different from a frame?
+Explain propositional and predicate logic with examples.
+What are ontologies in AI?
+What is an expert system? Mention some real-world examples.
+How is AI used in natural language processing?
+Mention a few AI applications in healthcare or education.
+What are the different types of search algorithms in AI?
+Define state space and search tree.
+What is a heuristic? Give a real-world example.
+What are the disadvantages of uninformed search?
+What is the difference between local and global optima?
+What are the main goals of AI?
+How does AI differ from Machine Learning and Deep Learning?
+What are the characteristics of an intelligent agent?
+Explain the PEAS framework used in designing agents.
+What are rational agents? Give examples.
+
+
+
+
+Answers 
+
+Basic AI Concepts
+What is AI?
+Intelligence exhibited by machines to simulate human thinking and decision-making.
+
+Turing Test:
+A machine passes if it can fool a human into thinking it's human — tests machine intelligence.
+
+Main AI Branches:
+Machine Learning, NLP, Vision, Planning, Robotics, Expert Systems.
+
+Strong vs Weak AI:
+Strong AI mimics human consciousness. Weak AI simulates intelligence for specific tasks.
+
+Intelligent Agent:
+Entity that perceives environment and acts — e.g., Roomba, Siri.
+
+Uninformed vs Informed Search:
+Uninformed (BFS/DFS) has no domain knowledge. Informed (A*, Greedy) uses heuristics.
+
+A* Algorithm Working:
+Chooses the node with lowest f(n) = g(n) + h(n) to expand next.
+
+Heuristics in Search:
+Guide the search to goal faster — e.g., Manhattan Distance in 8-puzzle.
+
+BFS vs DFS Comparison:
+BFS: Complete, shortest path, uses more memory.
+DFS: May not be complete, uses less memory.
+
+Knowledge Representation:
+Logic, semantic networks, frames, production rules.
+
+Semantic Network vs Frame:
+Network = graph-like (concepts/relations); Frame = structured objects with slots/values.
+
+Propositional vs Predicate Logic:
+Propositional = true/false statements.
+Predicate = statements with variables/quantifiers (more expressive).
+
+Ontologies:
+Formal definitions of concepts & relations in a domain (used in Semantic Web, AI).
+
+AI in NLP:
+Text classification, translation, summarization, chatbots.
+
+AI Applications:
+
+Healthcare: Disease prediction, diagnosis
+
+Education: Intelligent tutoring, grading assistants
+
+Search Algorithm Types:
+
+Uninformed: BFS, DFS
+
+Informed: A*, Greedy
+
+Local: Hill Climbing, Simulated Annealing
+
+State Space & Search Tree:
+State space = all possible configurations.
+Search tree = traversal path to goal state.
+
+Heuristic Example:
+GPS — estimated distance to destination (not exact).
+
+Disadvantages of Uninformed Search:
+Inefficient, blindly explores, may take longer.
+
+Local vs Global Optima:
+Local = best in small area, Global = best overall.
+
+Goals of AI:
+Learn, reason, perceive, understand natural language, interact naturally.
+
+AI vs ML vs DL:
+AI = broad field
+ML = data-driven learning
+DL = neural networks with many layers
+
+Intelligent Agent Characteristics:
+Autonomy, reactivity, proactiveness, adaptability.
+
+PEAS Framework:
+Performance measure, Environment, Actuators, Sensors (used to design agents).
+
+Rational Agents:
+Always make best decision based on info — e.g., Chess bot, self-driving car.
+
+
+
