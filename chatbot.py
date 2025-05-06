@@ -1,3 +1,7 @@
+#Develop an elementary chatbot for customer/user interaction application
+#pip install chatterbot
+#pip install chatterbot_corpus
+
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
