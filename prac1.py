@@ -1,3 +1,5 @@
+#Practical_4 Implement a n-queens problem Branch and Bound and Backtracking technique
+
 N = 4
 
 def printSolution(board):
